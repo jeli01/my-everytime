@@ -12,18 +12,18 @@ import java.util.List;
 public class CommentRepository {
     private final EntityManager em;
 
-    private void save(Comment comment) {
+    public void save(Comment comment) {
         em.persist(comment);
     }
-    private Comment findOne(Long id) {
+    public Comment findOne(Long id) {
         return em.find(Comment.class, id);
     }
 
-    private List<Comment> findAll() {
+    public List<Comment> findAll() {
         return em.createQuery("Select c from Comment c", Comment.class).getResultList();
     }
 
-    private void delete(Long id) {
+    public void delete(Long id) {
         Comment findedComment = em.find(Comment.class, id);
         em.remove(findedComment);
     }

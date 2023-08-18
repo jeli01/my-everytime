@@ -29,6 +29,9 @@
                 <li class="nav-item"><a class="nav-link" href="/book-store">책방</a></li>
                 <li class="nav-item"><a class="nav-link" href="#!">캠퍼스픽</a></li>
             </ul>
+            <form action="" th:action="@{/member/logout}" th:method="post">
+                <button type="submit" class="btn btn-primary">로그아웃</button>
+            </form>
         </div>
 
     </div>
@@ -40,12 +43,12 @@
             <h1 class="display-4 fw-bolder">게시판</h1>
             <p class="lead fw-normal text-white-50 mb-0">다양한 게시판에서 활동을 하십시오</p>
             <div class="list-group">
-                <a href="/post/free" class="list-group-item list-group-item-action text-bg-dark">자유 게시판</a>
-                <a href="#" class="list-group-item list-group-item-action text-bg-dark">새내기 게시판</a>
-                <a href="#" class="list-group-item list-group-item-action text-bg-dark">홍보 게시판</a>
-                <a href="#" class="list-group-item list-group-item-action text-bg-dark">졸업생 게시판</a>
-                <a href="#" class="list-group-item list-group-item-action text-bg-dark">동아리, 학회</a>
-                <a href="#" class="list-group-item list-group-item-action text-bg-dark">취업, 진로</a>
+                <a href="/post?type=free" class="list-group-item list-group-item-action text-bg-dark">자유 게시판</a>
+                <a href="/post?type=freshman" class="list-group-item list-group-item-action text-bg-dark">새내기 게시판</a>
+                <a href="/post?type=announce" class="list-group-item list-group-item-action text-bg-dark">홍보 게시판</a>
+                <a href="/post?type=graduate" class="list-group-item list-group-item-action text-bg-dark">졸업생 게시판</a>
+                <a href="/post?type=club" class="list-group-item list-group-item-action text-bg-dark">동아리, 학회</a>
+                <a href="/post?type=job" class="list-group-item list-group-item-action text-bg-dark">취업, 진로</a>
             </div>
         </div>
     </div>
@@ -56,11 +59,11 @@
         <h1>게시판 글 보기</h1>
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">글 제목</h5>
-                <p class="card-text">글 내용이 여기에 들어갑니다. 글 내용이 여기에 들어갑니다. 글 내용이 여기에 들어갑니다.</p>
+                <h5 class="card-title" th:text="${post.title}">글 제목</h5>
+                <p class="card-text" th:text="${post.contents}">글 내용이 여기에 들어갑니다. 글 내용이 여기에 들어갑니다. 글 내용이 여기에 들어갑니다.</p>
             </div>
             <div class="card-footer">
-                작성자: 사용자1 | 작성일: 2023-08-14
+                작성자: <span th:text="${post.writer.nickname}">사용자1</span> | 작성일: <span th:text="${post.createDate}">2023-08-14</span>
             </div>
         </div>
 

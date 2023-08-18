@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -43,27 +43,21 @@
 </header>
 <!-- Section-->
 <section class="py-5">
+
     <div class="container">
-        <form action="/action_page.php">
-            <div class="text-info h5"> 회원가입 페이지 입니다. </div>
+        <form action="/action_page.php" th:action="@{/member/login}" th:object="${loginForm}" th:method="post">
             <div class="mb-3 mt-3">
-                <label for="email" class="form-label">ID:</label>
-                <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+                <label for="id" class="form-label">ID:</label>
+                <input type="text" class="form-control" id="id" placeholder="Enter email" name="email" th:field="*{loginId}">
             </div>
             <div class="mb-3">
                 <label for="pwd" class="form-label">Password:</label>
-                <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
+                <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd" th:field="*{password}">
             </div>
-            <div class="mb-3">
-                <label for="pwd" class="form-label">Password:</label>
-                <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
-            </div>
-            <div class="mb-3">
-                <label for="pwd" class="form-label">Password:</label>
-                <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary" >Submit</button>
         </form>
+
+        <a class="text-info" href="/sign-up">회원이 아니라면 회원가입 하러 가기</a>
     </div>
 
 </section>

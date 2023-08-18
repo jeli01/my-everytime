@@ -44,9 +44,22 @@
 <!-- Section-->
 <section class="py-5">
     <div class="container">
-        <div class="alert alert-danger">
-            <strong>로그인이 필요합니다.</strong> <a href="/" class="alert-link">로그인을 하십시오.</a>.
-        </div>
+        <form action="/action_page.php" th:action="@{/member}" th:object="${signUpForm}" th:method="post">
+            <div class="text-info h5"> 회원가입 페이지 입니다. </div>
+            <div class="mb-3 mt-3">
+                <label for="loginId" class="form-label">ID:</label>
+                <input type="text" class="form-control" id="loginId" placeholder="아이디를 입력하세요" th:field="*{loginId}">
+            </div>
+            <div class="mb-3">
+                <label for="pwd" class="form-label">Password:</label>
+                <input type="password" class="form-control" id="pwd" placeholder="비밀번호를 입력하세요" th:field="*{password}">
+            </div>
+            <div class="mb-3">
+                <label for="nickname" class="form-label">Nickname:</label>
+                <input type="text" class="form-control" id="nickname" placeholder="닉네임을 입력하세요" th:field="*{nickname}">
+            </div>
+            <button type="submit" class="btn btn-primary">회원가입</button>
+        </form>
     </div>
 
 </section>

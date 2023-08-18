@@ -1,4 +1,4 @@
-package com.jeli.myeverytime.controller.bookstore;
+package com.jeli.myeverytime.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

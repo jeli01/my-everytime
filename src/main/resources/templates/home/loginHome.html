@@ -29,6 +29,9 @@
                         <li class="nav-item"><a class="nav-link" href="/book-store">책방</a></li>
                         <li class="nav-item"><a class="nav-link" href="#!">캠퍼스픽</a></li>
                     </ul>
+                    <form action="" th:action="@{/member/logout}" th:method="post">
+                        <button type="submit" class="btn btn-primary">로그아웃</button>
+                    </form>
                 </div>
             </div>
         </nav>
@@ -44,7 +47,7 @@
         <!-- Section-->
         <section class="py-5">
             <div class="container">
-                <div class="text-center h5">환영합니다 <mark>user</mark>님! </div>
+                <div class="text-center h5">환영합니다 <mark th:text="${member.nickname}">member</mark>님! </div>
             </div>
 
         </section>
